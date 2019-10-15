@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Score is:
+    <h1>wins</h1>
+    <div id="winNumber"></div>
+    <h1>losses </h1>
+    <div id="lossNumber"></div>
+    <h1>ties</h1>
+    <div id="tieNumber"></div>
+
+
+    <script>
+        // declare/initialize our variables
+
+        const computerChoice = ["r", "p", "s"];
+        let userGuess;
+        let win = 0;
+        let loss = 0;
+        let tie = 0;
+
+        //on key press
+
+        document.onkeyup = function(event) {
+
+            //randomly picks an item from out array and sets it to randomItem
+            const randomItem = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+            //sets the users imput to userGuess
+            userGuess = event.key;
+            //checks if the users input equals r,p,s if not displays "wrong key in console",
+            // probably want this to display on page
+            if (userGuess === "r" || userGuess === "p" || userGuess === "s") {
+
+                // a tie condition
+                if (userGuess == "r" && randomItem == "r") {
+                    //looks for an element called 'tieNumber' and changes the text 
+                    // between its tags to the value of tie
+                    document.getElementById('tieNumber').innerHTML = tie;
+                    tie++;
+
+                    // a win condition
+                } else if (userGuess == "r" && randomItem == "s") {
+                    document.getElementById('winNumber').innerHTML = win;
+                    win++;
+                    // a loss condition
+                } else if (userGuess == "r" && randomItem == "p") {
+
+                    document.getElementById('lossNumber').innerHTML = loss;
+                    loss++;
+                }
+
+                //still need to write the other 6 outcomes.
+
+            } else {
+                console.log("wrong key");
+            }
+
+
+        };
+    </script>
+
+
+
+
+</body>
+
+</html>
