@@ -125,8 +125,7 @@
             //checks if the users input equals r,p,s if not displays "wrong key in console",
             // probably want this to display on page
             if (userGuess === "r" || userGuess === "p" || userGuess === "s") {
-                document.getElementById('user-show').innerHTML = userGuess;
-                document.getElementById('computer-show').innerHTML = randomItem;
+
                 // tie condition
                 if (userGuess == "r" && randomItem == "r") {
                     //looks for an element called 'tieNumber' and changes the text 
