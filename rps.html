@@ -5,19 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Rock Paper Scisors</title>
+
+    <style>
+        h1 {font-size:2rem;text-align: center;color: rgb(255, 141, 20);}
+        h2 {display:block;font-size: 1.5rem;color:rgb(32, 32, 46);position:relative; margin-bottom:4rem;}
+        h2::after {content:''; width:100%; background:rgb(240, 240, 240);height:.125rem;position: absolute;bottom:-1rem;left: 0;}
+        h3 {font-size: 1.5rem; box-sizing: content-box; margin-top:o;}
+        ul {margin: 1em auto; list-style: none;}
+        li {display: inline-block; padding:0rem 2rem 0 2rem; margin: 0 auto;box-sizing: border-box;}
+        ul li:nth-child(2), ul li:nth-child(3) {border-left:dotted .25rem #eee;}
+        ul > div {margin:0 auto; padding-left: 3rem;text-transform: capitalize;}
+        #error {font-size: 2.5rem;font-family: monospace; color:rgb(150, 198, 77); margin: 1rem auto; text-align: center;}
+        section{background: rgb(220, 220, 220); border-radius: 2.5rem; border: .125rem solid black;padding:0 2em 2em 2em;}
+    </style>
 </head>
 
 <body>
+<section style="margin: 1em auto; width: 85vh">
+    <h1>Rock Paper Scisors</h1>
+    <h2 style="text-align: center;">Score is:</h2>
+    <ul><div>
+        <li>
+            <h3>wins</h3>
+            <div id="winNumber"></div>
+        </li>
+        <li>
+            <h3>losses </h3>
+            <div id="lossNumber"></div>
+        </li>
+        <li>
+            <h3>ties</h3>
+            <div id="tieNumber"></div>
+        </li>
+   </div> </ul>
+</section>
 
-    Score is:
-    <h1>wins</h1>
-    <div id="winNumber"></div>
-    <h1>losses </h1>
-    <div id="lossNumber"></div>
-    <h1>ties</h1>
-    <div id="tieNumber"></div>
-
+<div id="error"></div>
 
     <script>
         // declare/initialize our variables
@@ -27,11 +51,12 @@
         let win = 0;
         let loss = 0;
         let tie = 0;
+        
 
         //on key press
 
         document.onkeyup = function(event) {
-
+            let errorMessage = "";
             //randomly picks an item from out array and sets it to randomItem
             const randomItem = computerChoice[Math.floor(Math.random() * computerChoice.length)];
             //sets the users imput to userGuess
@@ -44,27 +69,57 @@
                 if (userGuess == "r" && randomItem == "r") {
                     //looks for an element called 'tieNumber' and changes the text 
                     // between its tags to the value of tie
-                    document.getElementById('tieNumber').innerHTML = tie;
                     tie++;
+        
 
                     // a win condition
-                } else if (userGuess == "r" && randomItem == "s") {
-                    document.getElementById('winNumber').innerHTML = win;
-                    win++;
-                    // a loss condition
-                } else if (userGuess == "r" && randomItem == "p") {
+                    } else if (userGuess == "r" && randomItem == "s") {
+                        win++;
+                
+                        
+                        // a loss condition
+                    } else if (userGuess == "r" && randomItem == "p") {
+                        loss++;
+                
+                        
+                    }   else if (userGuess =="p" && randomItem =="r") {
+                        win++;  
+            
+                        
+                    } else if (userGuess =="p" && randomItem == "s") {
+                        loss++; 
+                    
+                            
+                    } else if (userGuess =="p" && randomItem == "p") {
+                        tie++;
+                    
+                        
+                    } else if (userGuess =="s" && randomItem =="r") {
+                        loss++;
+                        
+                        
+                    } else if (userGuess =="s" && randomItem == "s") {
+                        tie++;
+                        
+                        
+                    } else if (userGuess =="s" && randomItem == "p") {
+                        win++;
+                        
+                    }
 
-                    document.getElementById('lossNumber').innerHTML = loss;
-                    loss++;
-                }
 
-                //still need to write the other 6 outcomes.
-
-            } else {
-                console.log("wrong key");
+                
+                } else {
+                // still having issuse with error on load because apparently no keypress at load fails our if and results in else
+                errorMessage = "No Spock lizards!";
+               
             }
-
-
+            
+            // pulled these out of if statement so they alway get called and called AFTER the increment of score. Now the first loss etc will increment to 1 instead of 0
+            document.getElementById('error').innerHTML= errorMessage;
+            document.getElementById('tieNumber').innerHTML = tie;
+            document.getElementById('lossNumber').innerHTML = loss;
+            document.getElementById('winNumber').innerHTML = win;
         };
     </script>
 
