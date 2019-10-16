@@ -11,6 +11,9 @@
 <body>
 
     Score is:
+
+    <p> user threw <span id="user-show"></span></p>
+    <p> computer threw <span id="computer-show"></span></p>
     <h1>wins</h1>
     <div id="winNumber"></div>
     <h1>losses </h1>
@@ -39,24 +42,60 @@
             //checks if the users input equals r,p,s if not displays "wrong key in console",
             // probably want this to display on page
             if (userGuess === "r" || userGuess === "p" || userGuess === "s") {
-
-                // a tie condition
+                document.getElementById('user-show').innerHTML = userGuess;
+                document.getElementById('computer-show').innerHTML = randomItem;
+                // tie condition
                 if (userGuess == "r" && randomItem == "r") {
                     //looks for an element called 'tieNumber' and changes the text 
                     // between its tags to the value of tie
                     document.getElementById('tieNumber').innerHTML = tie;
                     tie++;
 
-                    // a win condition
+
+
+
+
+                } else if (userGuess == "p" && randomItem == "p") {
+
+                    document.getElementByID('tieNumber').innerHTML = tie;
+                    tie++;
+                } else if (userGuess == "s" && randomItem == "s") {
+
+                    document.getElementByID('tieNumber').innerHTML = tie;
+                    tie++;
+
+                    //win condition
                 } else if (userGuess == "r" && randomItem == "s") {
+
                     document.getElementById('winNumber').innerHTML = win;
                     win++;
+                } else if (userGuess == "p" && randomItem == "r") {
+
+                    document.getElementById('winNumber').innerHTML = win;
+                    win++;
+                } else if (userGuess == "s" && randomItem == "p") {
+
+                    document.getElementById('winNumber').innerHTML = win;
+                    win++;
+
                     // a loss condition
                 } else if (userGuess == "r" && randomItem == "p") {
 
                     document.getElementById('lossNumber').innerHTML = loss;
                     loss++;
+
+                } else if (userGuess == "s" && randomItem == "r") {
+
+                    document.getElementById('lossNumber').innerHTML = loss;
+                    loss++;
+
+
+                } else if (userGuess == "p" && randomItem == "s") {
+
+                    document.getElementById('lossNumber').innerHTML = loss;
+                    loss++;
                 }
+
 
                 //still need to write the other 6 outcomes.
 
