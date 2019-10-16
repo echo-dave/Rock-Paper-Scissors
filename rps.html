@@ -107,7 +107,7 @@
     <script>
         // declare/initialize our variables
 
-        const computerChoice = ["r", "p", "s"];
+        const validChoices = ["r", "p", "s"];
         let userGuess;
         let win = 0;
         let loss = 0;
@@ -119,55 +119,28 @@
         document.onkeyup = function(event) {
             let errorMessage = "";
             //randomly picks an item from out array and sets it to randomItem
-            const randomItem = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+            const randomItem = validChoices[Math.floor(Math.random() * validChoices.length)];
             //sets the users imput to userGuess
             userGuess = event.key;
+
             //checks if the users input equals r,p,s if not displays "wrong key in console",
             // probably want this to display on page
-            if (userGuess === "r" || userGuess === "p" || userGuess === "s") {
+            if (validChoices.includes(userGuess)) {
 
                 // tie condition
-                if (userGuess == "r" && randomItem == "r") {
-                    //looks for an element called 'tieNumber' and changes the text 
-                    // between its tags to the value of tie
+                if ((userGuess == "r" && randomItem == "r") || (userGuess == "s" && randomItem == "s") || (userGuess == "p" && randomItem == "p")) {
+
                     tie++;
-
-
-
-                    // a win condition
-                } else if (userGuess == "r" && randomItem == "s") {
+                    // win   
+                } else if (userGuess === randomItem) {
                     win++;
-
-
-                    // a loss condition
-                } else if (userGuess == "r" && randomItem == "p") {
-                    loss++;
-
-
-                } else if (userGuess == "p" && randomItem == "r") {
-                    win++;
-
-
-                } else if (userGuess == "p" && randomItem == "s") {
-                    loss++;
-
-
-                } else if (userGuess == "p" && randomItem == "p") {
-                    tie++;
-
-
-                } else if (userGuess == "s" && randomItem == "r") {
-                    loss++;
-
-
-                } else if (userGuess == "s" && randomItem == "s") {
-                    tie++;
-
-
-                } else if (userGuess == "s" && randomItem == "p") {
-                    win++;
-
+                    //loss  
+                } else {
+                    loss++
                 }
+
+
+
 
 
 
