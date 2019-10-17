@@ -1,8 +1,8 @@
 body {color:#494949;font-family: sans-serif;margin-top:15%;}
 
-h1 {font-size:2rem;text-align: center;}
+h1 {font-size:2rem;text-align: center;margin-bottom:.4em;}
 
-h2 {display:block;font-size: 1.5rem;position:relative; margin-bottom:4rem;}
+h2 {display:block;font-size: 1.5rem;position:relative; margin-bottom:2.4rem;}
 
 h2::after {
     content:''; 
@@ -10,13 +10,20 @@ h2::after {
     background:rgb(240, 240, 240);
     height:.125rem;
     position: absolute;
-    bottom:-1rem;
+    bottom:-1.2rem;
     left: 0;
 }
 
-h3 {font-size: 1.5rem; box-sizing: content-box; margin-top:0;}
-
-ul {margin: 1em auto; list-style: none;}
+h3 {font-size: 1.5rem; box-sizing: content-box; margin-top:0; line-height: 2em;}
+.scoreWrap {text-align: center;width: 100%;}
+ul { margin: 1em auto; list-style: none;
+    display: inline-block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 00px;
+}
 
 li {
     display: inline-block; 
@@ -27,7 +34,8 @@ li {
 
 ul li:nth-child(2), ul li:nth-child(3) {border-left:dotted .25rem #eee;}
 
-ul > div {margin:0 auto; padding-left: 3rem;text-transform: capitalize;}
+ul > div {margin:0 auto; text-transform: capitalize;}
+#winNumber, #lossNumber, #tieNumber {margin:1rem auto 1rem; text-align: center;}
 
 #error {
     font-size: 2.5rem;
@@ -41,7 +49,7 @@ section{
     background: rgb(220, 220, 220); 
     border-radius: 2.5rem; 
     border: .125rem solid black;
-    padding:0 2em 2em 2em;
+    padding:2em 2em 2em 2em;
     margin: 0 auto;
     max-width:40rem;
 }
