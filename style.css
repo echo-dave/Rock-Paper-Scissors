@@ -45,13 +45,33 @@ ul > div {margin:0 auto; text-transform: capitalize;}
     text-align: center;
 }
 
-section{
+.roundBox{
     background: rgb(220, 220, 220); 
-    border-radius: 2.5rem; 
+    border-radius: 2.5rem 2.5rem 0 0; 
     border: .125rem solid black;
     padding:2em 2em 2em 2em;
-    margin: 0 auto;
+    margin: 0 auto .5em;
     max-width:40rem;
+}
+
+div.roundBox {
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0 0 2.5rem 2.5rem;
+}
+
+#rolls {
+    font-family: monospace;
+    font-size: 2em;
+    padding-right:1em;
+    border-right: .125rem dotted #fff;
+
+}
+
+#result {
+    font-family: monospace;
+    font-size: 2em;
+    padding-left:1em;
 }
 
 @media only screen and (max-width:450px) {

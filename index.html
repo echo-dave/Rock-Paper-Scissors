@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<section>
+<section class="roundBox">
     <h1>Rock Paper Scisors</h1>
     <h2 style="text-align: center;">Score is:</h2>
     <div class="scoreWrap">
@@ -30,6 +30,8 @@
         </li>
    </div> </ul></div>
 </section>
+
+<div class="roundBox"><span id="rolls"></span><span id="result"></span></div>
 
 <div id="error"></div>
 
@@ -51,21 +53,32 @@
             const randomItem = validChoices[Math.floor(Math.random() * validChoices.length)];
             //sets the users imput to userGuess
             userGuess = event.key;
+            
+          
 
             //checks if the users input equals r,p,s if not displays "wrong key in console",
             // probably want this to display on page
             if (validChoices.includes(userGuess)) {
 
+                //diplay user choice vs computer roll
+                document.getElementById('rolls').textContent = `${userGuess} vs ${randomItem}`;
+
                 // win condition
                 if ((userGuess == "r" && randomItem == "s") || (userGuess == "s" && randomItem == "p") || (userGuess == "p" && randomItem == "r")) {
+                    win++;
+                    document.getElementById('result').textContent = 'You win!!'
 
-                    tie++;
                     // tie   
                 } else if (userGuess === randomItem) {
-                    win++;
+                    tie++;
+                    document.getElementById('result').textContent = 'Tie!!'
+
+
                     //loss  
                 } else {
                     loss++
+                    document.getElementById('result').textContent = 'You lose'
+
                 }
 
 
@@ -85,6 +98,7 @@
             document.getElementById('tieNumber').innerHTML = tie;
             document.getElementById('lossNumber').innerHTML = loss;
             document.getElementById('winNumber').innerHTML = win;
+
         };
 
         //hello hihihihihih
