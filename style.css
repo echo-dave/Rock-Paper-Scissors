@@ -1,4 +1,4 @@
-body {color:#494949;font-family: sans-serif;margin-top:15%;}
+body {color:#494949;font-family: sans-serif;margin-top:15vh;}
 
 h1 {font-size:2rem;text-align: center;margin-bottom:.4em;}
 
@@ -45,6 +45,7 @@ ul > div {margin:0 auto; text-transform: capitalize;}
     text-align: center;
 }
 
+/* section css */
 .roundBox{
     background: rgb(220, 220, 220); 
     border-radius: 2.5rem 2.5rem 0 0; 
