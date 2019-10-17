@@ -65,6 +65,7 @@ div.roundBox {
     font-size: 2em;
     padding-right:1em;
     border-right: .125rem dotted #fff;
+    text-transform: uppercase;
 
 }
 
