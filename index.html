@@ -6,103 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock Paper Scisors</title>
-
-    <style>
-        h1 {
-            font-size: 2rem;
-            text-align: center;
-            color: rgb(255, 141, 20);
-        }
-        
-        h2 {
-            display: block;
-            font-size: 1.5rem;
-            color: rgb(32, 32, 46);
-            position: relative;
-            margin-bottom: 4rem;
-        }
-        
-        h2::after {
-            content: '';
-            width: 100%;
-            background: rgb(240, 240, 240);
-            height: .125rem;
-            position: absolute;
-            bottom: -1rem;
-            left: 0;
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            box-sizing: content-box;
-            margin-top: o;
-        }
-        
-        ul {
-            margin: 1em auto;
-            list-style: none;
-        }
-        
-        li {
-            display: inline-block;
-            padding: 0rem 2rem 0 2rem;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-        
-        ul li:nth-child(2),
-        ul li:nth-child(3) {
-            border-left: dotted .25rem #eee;
-        }
-        
-        ul>div {
-            margin: 0 auto;
-            padding-left: 3rem;
-            text-transform: capitalize;
-        }
-        
-        #error {
-            font-size: 2.5rem;
-            font-family: monospace;
-            color: rgb(150, 198, 77);
-            margin: 1rem auto;
-            text-align: center;
-        }
-        
-        section {
-            background: rgb(220, 220, 220);
-            border-radius: 2.5rem;
-            border: .125rem solid black;
-            padding: 0 2em 2em 2em;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<section>
+    <h1>Rock Paper Scisors</h1>
+    <h2 style="text-align: center;">Score is:</h2>
+    <ul><div>
+        <li>
+            <h3>wins</h3>
+            <div id="winNumber"></div>
+        </li>
+        <li>
+            <h3>losses </h3>
+            <div id="lossNumber"></div>
+        </li>
+        <li>
+            <h3>ties</h3>
+            <div id="tieNumber"></div>
+        </li>
+   </div> </ul>
+</section>
 
-    <section style="margin: 1em auto; width: 85vh">
-        <h1>Rock Paper Scisors</h1>
-        <h2 style="text-align: center;">Score is:</h2>
-        <ul>
-            <div>
-                <li>
-                    <h3>wins</h3>
-                    <div id="winNumber"></div>
-                </li>
-                <li>
-                    <h3>losses </h3>
-                    <div id="lossNumber"></div>
-                </li>
-                <li>
-                    <h3>ties</h3>
-                    <div id="tieNumber"></div>
-                </li>
-            </div>
-        </ul>
-    </section>
-
-    <div id="error"></div>
-
+<div id="error"></div>
 
     <script>
         // declare/initialize our variables
